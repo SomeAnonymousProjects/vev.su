@@ -1,7 +1,7 @@
 baseURL = "https://vev.su/"
 title = "Очень развлекательное видео"
 defaultContentLanguage = "ru"
-publishdir = "./public"
+publishdir = "./docs"
 
 [params]
   subtitle = "Подборки и топы полезного и развлекательного видео из сети"
