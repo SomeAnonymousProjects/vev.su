@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{ if not .Site.IsServer }}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ .Site.Params.googleTagManagerId }}');</script>
+    <!-- End Google Tag Manager -->
+    {{ end }}
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ $title := "Very Entertainment Video | VEV.SU" }}
+    <title>{{ $title }}</title>
+    <meta property="og:title" content="{{ $title }}"/>
+    <meta name="twitter:title" content="{{ $title }}"/>
+    <meta itemprop="name" content="{{ $title }}"/>
+    <meta name="application-name" content="{{ $title }}"/>
+    <meta property="og:site_name" content="{{ .Site.Title }}"/>
+
+    {{ $desc := .Site.Params.description }}
+    <meta name="description" content="{{ $desc }}"/>
+    <meta itemprop="description" content="{{ $desc }}"/>
+    <meta property="og:description" content="{{ $desc }}"/>
+    <meta name="twitter:description" content="{{ $desc }}"/>
+
+    <base href="{{ .Permalink }}">
+    <link rel="canonical" href="{{ .Permalink }}" itemprop="url" />
+    <meta name="url" content="{{ .Permalink }}" />
+    <meta name="twitter:url" content="{{ .Permalink }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+
+    <!-- Sitemap & RSS Feed Tags -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ .Site.BaseURL }}sitemap.xml"/>
+
+    {{ with .OutputFormats.Get "RSS" }} {{ printf `
+    <link rel="%s" type="%s" href="%s" title="%s"/>` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end }}
+
+    <!-- Search Engine Crawler Tags -->
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+
+    <!-- фон для плитки с иконкой -->
+    <meta name="msapplication-TileColor" content="#da532c">
+
+    <!-- фон адресной строки -->
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="manifest" href="{{ "/site.webmanifest" | relURL }}">
+    <link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | relURL }}" color="#5bbad5">
+
+    <link rel="shortcut icon"                          href="{{ "/favicon.ico" | relURL }}" />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="{{ "/favicon.ico" | relURL }}" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="{{ "/favicon.ico" | relURL }}" />
+    <link rel="icon" type="image/png" sizes="16x16"    href="{{ "/favicon-16x16.png" | relURL }}" />
+    <link rel="icon" type="image/png" sizes="32x32"    href="{{ "/favicon-32x32.png" | relURL }}" />
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{ "/android-chrome-192x192.png" | relURL }}" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ "/apple-touch-icon.png" | relURL }}" />
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ "/apple-touch-icon.png" | relURL }}" />
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ "/apple-touch-icon.png" | relURL }}" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ "/apple-touch-icon.png" | relURL }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | relURL }}" />
+    <link rel="apple-touch-icon" sizes="72x72"   href="{{ "/apple-touch-icon.png" | relURL }}" />
+    <link rel="apple-touch-icon"                 href="{{ "/apple-touch-icon.png" | relURL }}" />
+
+    <meta property="og:locale" content="{{ .Language.Lang }}">
+    <meta name="language" content="{{ .Language.LanguageName }}">
+    {{ range .AllTranslations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+    {{ end }}
+
+    {{ $twitter_card := "summary_large_image" }}
+    <meta property="twitter:card" content="{{ $twitter_card }}">
+    <meta property="twitter:site" content="@AnonymousProjectsOfficial">
+    <meta property="twitter:creator" content="@AnonymousProjectsOfficial">
+
+    <meta name="keywords" content=""/>
+    <meta name="imagemode" content="force"/>
+    <meta name="coverage" content="Worldwide"/>
+    <meta name="distribution" content="Global"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: black;
+            color: whitesmoke;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        h1, h2 {
+            letter-spacing: .5em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+            color: whitesmoke;
+        }
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            position: relative;
+            /*border-bottom: 1px dotted whitesmoke;*/
+        }
+
+        .page-1 {
+            min-height: 100vh;
+        }
+
+        .page-1 .logo-link {
+            margin-right: 2em;
+            white-space: nowrap;
+            outline: none;
+            text-decoration: none;
+
+        }
+
+        .page-1 .logo-link span {
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        .page-1 .logo-link span:nth-child(odd) {
+            top: -0.25em;
+            color: black;
+            padding: 0 .5em;
+        }
+
+        .page-1 .logo-link span:nth-child(odd):before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-left: -20%;
+            border-top: 1.2em solid whitesmoke;
+            border-bottom: none;
+            border-left: 1.2em solid transparent;
+            border-right: 1.2em solid transparent;
+
+            width: 0;
+            height: 0;
+            z-index: -1;
+        }
+
+        .page-1 .logo-link span:nth-child(even) {
+            bottom: -0.25em;
+            color: black;
+        }
+
+        .page-1 .logo-link span:nth-child(even):before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-left: -140%;
+            margin-top: -40%;
+            border-bottom: 1.3em solid whitesmoke;
+            border-top: none;
+            border-left: 1.3em solid transparent;
+            border-right: 1.3em solid transparent;
+
+            width: 0;
+            height: 0;
+            z-index: -1;
+        }
+
+        @media (max-width: 500px) {
+            .page-1 h1 {
+                font-size: 16px;
+            }
+        }
+
+        .page-1 .site-description {
+            letter-spacing: .1em;
+            text-align: center;
+        }
+
+        .page.sub-site {
+            cursor: pointer;
+            margin-top: 1em;
+        }
+
+        .page::after {
+            content: "";
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.7;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+            box-sizing: border-box;
+            background-attachment: fixed;
+        }
+
+        .page.site-series::after {
+            background-image: url("/img/bg-series.jpg");
+        }
+
+        .page.site-movies::after {
+            background-image: url("/img/bg-movies.jpg");
+        }
+
+        .page.site-show::after {
+            background-image: url("/img/bg-show.jpg");
+        }
+
+        .page.site-learn::after {
+            background-image: url("/img/bg-learn.png");
+            background-position: left center;
+            opacity: .3;
+        }
+
+        .page.sub-site h2 a {
+            font-size: 8vw;
+            color: rgba(250, 250, 250, .9);
+        }
+
+        .page .arrow-down {
+            margin: 30px;
+        }
+
+        .page .arrow-down span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-bottom: 5px solid whitesmoke;
+            border-right: 5px solid whitesmoke;
+            transform: rotate(45deg);
+            margin: -16px;
+            animation: arrow-down 2s infinite;
+        }
+
+        .page .arrow-down span:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+        .page .arrow-down span:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+        @keyframes arrow-down {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-20px, -20px);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(20px, 20px);
+            }
+        }
+
+        footer {
+            border-top: 2px solid whitesmoke;
+            margin: 1em 5vw;
+        }
+
+        footer .copyright {
+            text-align: center;
+        }
+
+        .sub-site .cloud-titles.before,
+        .sub-site .cloud-titles.after {
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0 10%;
+            overflow: hidden;
+        }
+
+        .sub-site .cloud-titles.before {
+            border-top-left-radius: 100%;
+            border-bottom-right-radius: 100%;
+        }
+
+        .sub-site .cloud-titles.after {
+            border-bottom-left-radius: 100%;
+            border-top-right-radius: 100%;
+        }
+
+        .sub-site .cloud-titles a {
+            border-radius: .5em / 10px;
+            padding:  0 .5em;
+            white-space: nowrap;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .sub-site .cloud-titles .cloud-title-2 {
+            font-size: 1.2em;
+        }
+        .sub-site .cloud-titles .cloud-title-3 {
+            font-size: 1.6em;
+        }
+        .sub-site .cloud-titles .cloud-title-4 {
+            font-size: 1.8em;
+        }
+        .sub-site .cloud-titles .cloud-title-5 {
+            font-size: 2em;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            document.querySelectorAll('.page.sub-site').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    let href = this.querySelector('h2 a').getAttribute('href');
+                    if (href) {
+                        window.location = href;
+                    }
+                });
+            })
+        }
+    </script>
+</head>
+<body>
+{{ if not .Site.IsServer }}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.googleTagManagerId }}"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{{ end }}
+<section class="page page-1">
+    <a href="{{ .Site.BaseURL }}" class="logo-link"><span>V</span><span>E</span><span>V</span></a>
+    <h1 class="title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+    <p class="site-description">{{ .Site.Params.subtitle }}</p>
+    <div class="arrow-down">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</section>
+{{ $list := .Site.Menus.main }}
+{{ $len := (len $list) }}
+{{ range $index, $element := $list }}
+<section class="page sub-site site-{{ $element.Identifier }}">
+    <div class="cloud-titles before"><a href="#" class="cloud-title-{{ index (seq 3 | shuffle | first 1) 0 }}"></a></div>
+    <h2 class="title"><a href="{{ $element.URL }}">{{ $element.Name }}</a></h2>
+    <div class="cloud-titles after"><a href="#" class="cloud-title-{{ index (seq 3 | shuffle | first 1) 0 }}"></a></div>
+    {{ if ne (add $index 1) $len }}
+    <div class="arrow-down">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    {{ end }}
+</section>
+{{ end }}
+
+<footer>
+    <p class="copyright">&copy; VEV {{ now.Year }}</p>
+</footer>
+
+</body>
+</html>

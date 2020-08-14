@@ -1,0 +1,38 @@
+baseURL = "https://vev.su/"
+title = "Очень развлекательное видео"
+defaultContentLanguage = "ru"
+publishdir = "./public"
+
+[params]
+  subtitle = "Подборки и топы полезного и развлекательного видео из сети"
+  description = "Подборки полезного и развлекательного видео из сети, смотреть фильмы онлайн, смотреть сериалы онлайн, смотреть видеокурсы онлайн, смотреть телепередачи онлайн"
+  googleTagManagerId = "GTM-M5HZVHN"
+
+[menu]
+  [[menu.main]]
+    identifier = "movies"
+    name = "Фильмы"
+    url = "https://movies.vev.su"
+    weight = 10
+  [[menu.main]]
+    identifier = "series"
+    name = "Сериалы"
+    url = "https://serials.vev.su"
+    weight = 20
+  [[menu.main]]
+    identifier = "show"
+    name = "Телепередачи"
+    url = "https://show.vev.su"
+    weight = 30
+  [[menu.main]]
+    identifier = "learn"
+    name = "Образование"
+    url = "https://learn.vev.su"
+    weight = 40
+
+[languages]
+  [languages.ru]
+    languageName = "Русский"
+    languageCode = "ru-ru"
+    title = "Очень развлекательное видео"
+    weight = 1
