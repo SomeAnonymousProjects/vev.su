@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<base href="{{ .Permalink }}">
+<link rel="canonical" href="{{ .Permalink }}" itemprop="url"/>
+<meta name="url" content="{{ .Permalink }}"/>
+<meta name="twitter:url" content="{{ .Permalink }}"/>
+<meta property="og:url" content="{{ .Permalink }}"/>
+
+<!-- Sitemap & RSS Feed Tags -->
+<link rel="sitemap" type="application/xml" title="Sitemap" href="{{ " sitemap.xml" | absURL }}" />
+{{ with .OutputFormats.Get "RSS" }}{{ printf `<link rel="%s" type="%s" href="%s" title="%s"/>` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}{{ end }}
+
+<!-- Search Engine Crawler Tags -->
+<meta name="robots" content="index,follow"/>
+<meta name="googlebot" content="index,follow"/>
+
+<link rel="shortcut icon" href="{{ "/favicon.ico" | relURL }}" />
+<link rel="icon" type="image/x-icon" sizes="32x32" href="{{ "/favicon.ico" | relURL }}" />
+<link rel="icon" type="image/x-icon" sizes="16x16" href="{{ "/favicon.ico" | relURL }}" />
+
+<meta property="og:locale" content="{{ .Language.Lang }}">
+<meta name="language" content="{{ .Language.LanguageName }}">
+{{ range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+{{ end }}
+
+{{ $twitter_card := "summary_large_image" }}
+<meta property="twitter:card" content="{{ $twitter_card }}">
+<meta property="twitter:site" content="@AnonymousProjectsOfficial">
+<meta property="twitter:creator" content="@AnonymousProjectsOfficial">
+
+<meta name="keywords" content=""/>
+<meta name="imagemode" content="force"/>
+<meta name="coverage" content="Worldwide"/>
+<meta name="distribution" content="Global"/>
+<meta name="HandheldFriendly" content="True"/>
+<meta name="msapplication-tap-highlight" content="no"/>
+<meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-touch-fullscreen" content="yes"/>
