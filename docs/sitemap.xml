@@ -2,16 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <url>
-    <loc>https://vev.su/categories/</loc>
-  </url>
   
-  <url>
-    <loc>https://vev.su/tags/</loc>
-  </url>
+  
   
   <url>
     <loc>https://vev.su/</loc>
   </url>
+  
+  
+  
+  <url>
+    <loc>https://vev.su/abuse/</loc>
+  </url>
+  
   
 </urlset>

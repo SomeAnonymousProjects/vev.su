@@ -13,7 +13,7 @@
     <!-- End Google Tag Manager -->
     {{ end }}
 
-    {{ $title := "Very Entertainment Video" }}
+    {{ $title := "404 Not Found | Very Entertainment Video" }}
     <title>{{ $title }}</title>
     <meta property="og:title" content="{{ $title }}"/>
     <meta name="twitter:title" content="{{ $title }}"/>
@@ -21,7 +21,7 @@
     <meta name="application-name" content="{{ $title }}"/>
     <meta property="og:site_name" content="{{ .Site.Title }}"/>
 
-    {{ $desc := .Site.Params.description }}
+    {{ $desc := .Description | default .Site.Params.description }}
     <meta name="description" content="{{ $desc }}"/>
     <meta itemprop="description" content="{{ $desc }}"/>
     <meta property="og:description" content="{{ $desc }}"/>
@@ -31,8 +31,9 @@
     {{ $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "main.scss" . | resources.ToCSS $options | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
-    <script src="/js/script.js"></script></head>
-<body class="landing">
+    <script src="/js/script.js"></script>
+</head>
+<body class="separate-page">
 {{ if not .Site.IsServer }}
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.googleTagManagerId }}"
@@ -40,31 +41,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 {{ end }}
 
-<section class="page page-1">
-    <a href="{{ .Site.BaseURL }}" class="logo-link"><span>V</span><span>E</span><span>V</span></a>
-    <h1 class="title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
-    <p class="site-description">{{ .Site.Params.subtitle }}</p>
-    <div class="arrow-down">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</section>
+{{- partial "_header.html" . -}}
 
-{{ $list := .Site.Menus.main }}
-{{ $len := (len $list) }}
-{{ range $index, $element := $list }}
-<section class="page sub-site site-{{ $element.Identifier }}">
-    <h2 class="title"><a href="{{ $element.URL }}">{{ $element.Name }}</a></h2>
-    {{ if ne (add $index 1) $len }}
-    <div class="arrow-down">
-        <span></span>
-        <span></span>
-        <span></span>
+<main>
+    <div class="block404">
+        404 | Not Found
     </div>
-    {{ end }}
-</section>
-{{ end }}
+</main>
 
 {{- partial "_footer.html" . -}}
 </body>

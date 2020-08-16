@@ -1,5 +1,5 @@
 baseURL = "https://vev.su/"
-title = "Очень развлекательное видео"
+title = "Very Entertainment Video"
 defaultContentLanguage = "ru"
 publishdir = "./docs"
 
@@ -8,31 +8,47 @@ publishdir = "./docs"
   description = "Подборки полезного и развлекательного видео из сети, смотреть фильмы онлайн, смотреть сериалы онлайн, смотреть видеокурсы онлайн, смотреть телепередачи онлайн"
   googleTagManagerId = "GTM-M5HZVHN"
 
+[permalinks]
+  page = ":filename"
+
+[taxonomies]
+
+[outputs]
+  home = ["HTML"]
+  page = ["HTML"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
 [menu]
   [[menu.main]]
     identifier = "movies"
     name = "Фильмы"
     url = "https://movies.vev.su"
+#    url = "http://localhost:1352"
     weight = 10
   [[menu.main]]
     identifier = "series"
     name = "Сериалы"
     url = "https://serials.vev.su"
+#    url = "http://localhost:1353"
     weight = 20
   [[menu.main]]
     identifier = "show"
     name = "Телепередачи"
     url = "https://show.vev.su"
+#    url = "http://localhost:1354"
     weight = 30
   [[menu.main]]
     identifier = "learn"
     name = "Образование"
     url = "https://learn.vev.su"
+#    url = "http://localhost:1355"
     weight = 40
 
 [languages]
   [languages.ru]
     languageName = "Русский"
     languageCode = "ru-ru"
-    title = "Очень развлекательное видео"
+    title = "Very Entertainment Video"
     weight = 1
