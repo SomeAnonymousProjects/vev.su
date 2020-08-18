@@ -49,7 +49,7 @@ body.landing {
           &:nth-child(odd) {
             top: -0.25em;
             color: black;
-            padding: 0 .5em;
+            padding: 0 .25em;
 
             &:before {
               content: "";
@@ -57,7 +57,7 @@ body.landing {
               position: absolute;
               top: 0;
               left: 0;
-              margin-left: -20%;
+              margin-left: -.25em;
               border-top: 1.2em solid whitesmoke;
               border-bottom: none;
               border-left: 1.2em solid transparent;
@@ -72,7 +72,7 @@ body.landing {
           &:nth-child(even) {
             bottom: -0.25em;
             color: black;
-            padding: 0 .5em;
+            padding: 0 .25em;
 
             &:before {
               content: "";
