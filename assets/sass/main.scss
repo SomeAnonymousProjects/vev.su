@@ -12,6 +12,63 @@ body {
   margin: 0;
 }
 
+.logo-link {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-right: 2em;
+  outline: none;
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: bold;
+
+  span {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin: 0 -.5em;
+    width: 1.6em;
+    height: 1.6em;
+    color: black;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-left: .8em solid transparent;
+      border-right: .8em solid transparent;
+    }
+
+    &:nth-child(odd) {
+      top: -0.25em;
+      align-items: flex-start;
+
+      &:before {
+        border-top: 1.6em solid whitesmoke;
+        border-bottom: none;
+        z-index: -1;
+      }
+    }
+
+    &:nth-child(even) {
+      bottom: -0.25em;
+      align-items: flex-end;
+
+      &:before {
+        border-bottom: 1.6em solid whitesmoke;
+        border-top: none;
+        z-index: -1;
+      }
+    }
+  }
+}
+
 body.landing {
   h1, h2 {
     letter-spacing: .5em;
@@ -30,66 +87,6 @@ body.landing {
 
     &.page-1 {
       min-height: 100vh;
-
-      .logo-link {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        //margin-right: 2em;
-        outline: none;
-        text-decoration: none;
-        font-size: 2em;
-        font-weight: bold;
-
-        span {
-          position: relative;
-          box-sizing: border-box;
-          display: flex;
-          justify-content: center;
-          margin: 0 -.5em;
-          width: 1.6em;
-          height: 1.6em;
-          color: black;
-
-          &:before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-left: .8em solid transparent;
-            border-right: .8em solid transparent;
-          }
-
-          &:nth-child(odd) {
-            top: -0.25em;
-            align-items: flex-start;
-
-            &:before {
-              //margin-left: -.25em;
-              border-top: 1.6em solid whitesmoke;
-              border-bottom: none;
-              z-index: -1;
-            }
-          }
-
-          &:nth-child(even) {
-            bottom: -0.25em;
-            align-items: flex-end;
-
-            &:before {
-              //margin-left: -25%;
-              //margin-top: -0.25em;
-              border-bottom: 1.6em solid whitesmoke;
-              border-top: none;
-              z-index: -1;
-            }
-          }
-        }
-      }
 
       @media (max-width: 500px) {
         h1 {
@@ -219,65 +216,6 @@ body.separate-page {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    .logo-link {
-      margin-right: 2em;
-      white-space: nowrap;
-      outline: none;
-      text-decoration: none;
-
-      span {
-        font-size: 1.5em;
-        font-weight: bold;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline;
-      }
-
-      span:nth-child(odd) {
-        top: -0.25em;
-        color: black;
-        padding: 0 .5em;
-
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          margin-left: -20%;
-          border-top: 1.2em solid whitesmoke;
-          border-bottom: none;
-          border-left: 1.2em solid transparent;
-          border-right: 1.2em solid transparent;
-          width: 0;
-          height: 0;
-          z-index: -1;
-        }
-      }
-
-      span:nth-child(even) {
-        bottom: -0.25em;
-        color: black;
-
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          margin-left: -140%;
-          margin-top: -40%;
-          border-bottom: 1.3em solid whitesmoke;
-          border-top: none;
-          border-left: 1.3em solid transparent;
-          border-right: 1.3em solid transparent;
-          width: 0;
-          height: 0;
-          z-index: -1;
-        }
-      }
-    }
 
     .page-header-title {
       letter-spacing: normal;
