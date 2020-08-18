@@ -72,6 +72,7 @@ body.landing {
           &:nth-child(even) {
             bottom: -0.25em;
             color: black;
+            padding: 0 .5em;
 
             &:before {
               content: "";
@@ -79,8 +80,8 @@ body.landing {
               position: absolute;
               top: 0;
               left: 0;
-              margin-left: -140%;
-              margin-top: -40%;
+              margin-left: -25%;
+              margin-top: -0.25em;
               border-bottom: 1.3em solid whitesmoke;
               border-top: none;
               border-left: 1.3em solid transparent;
