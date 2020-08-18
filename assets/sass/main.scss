@@ -33,62 +33,58 @@ body.landing {
 
       .logo-link {
         box-sizing: border-box;
-        margin-right: 2em;
-        white-space: nowrap;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        //margin-right: 2em;
         outline: none;
         text-decoration: none;
+        font-size: 2em;
+        font-weight: bold;
 
         span {
-          font-size: 1.5em;
-          font-weight: bold;
-          line-height: 0;
           position: relative;
-          vertical-align: baseline;
           box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          margin: 0 -.5em;
+          width: 1.6em;
+          height: 1.6em;
+          color: black;
+
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-left: .8em solid transparent;
+            border-right: .8em solid transparent;
+          }
 
           &:nth-child(odd) {
             top: -0.25em;
-            color: black;
-            padding: 0 .25em;
+            align-items: flex-start;
 
             &:before {
-              content: "";
-              display: block;
-              position: absolute;
-              top: 0;
-              left: 0;
-              margin-left: -.25em;
-              border-top: 1.2em solid whitesmoke;
+              //margin-left: -.25em;
+              border-top: 1.6em solid whitesmoke;
               border-bottom: none;
-              border-left: 1.2em solid transparent;
-              border-right: 1.2em solid transparent;
-
-              width: 0;
-              height: 0;
               z-index: -1;
             }
           }
 
           &:nth-child(even) {
             bottom: -0.25em;
-            color: black;
-            padding: 0 .25em;
+            align-items: flex-end;
 
             &:before {
-              content: "";
-              display: block;
-              position: absolute;
-              top: 0;
-              left: 0;
-              margin-left: -25%;
-              margin-top: -0.25em;
-              border-bottom: 1.3em solid whitesmoke;
+              //margin-left: -25%;
+              //margin-top: -0.25em;
+              border-bottom: 1.6em solid whitesmoke;
               border-top: none;
-              border-left: 1.3em solid transparent;
-              border-right: 1.3em solid transparent;
-
-              width: 0;
-              height: 0;
               z-index: -1;
             }
           }
