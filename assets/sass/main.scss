@@ -32,6 +32,7 @@ body.landing {
       min-height: 100vh;
 
       .logo-link {
+        box-sizing: border-box;
         margin-right: 2em;
         white-space: nowrap;
         outline: none;
@@ -43,6 +44,7 @@ body.landing {
           line-height: 0;
           position: relative;
           vertical-align: baseline;
+          box-sizing: border-box;
 
           &:nth-child(odd) {
             top: -0.25em;
